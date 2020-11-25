@@ -17,6 +17,7 @@ function myFunction() {
   }
   
   post_slack(create_message(event))
+  Logger.log("Post　Slack");
   
 }
 
@@ -46,6 +47,7 @@ function create_message(event){
 
   var message =start + ' ~ ' + end  +' *[' + title + ']* \n' 
                + 'meet_url: '+ hangoutLink;
+  Logger.log("message: " + message);
   return message;
 }
 
