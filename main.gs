@@ -4,12 +4,15 @@ function myFunction() {
   
   //eventが存在しなければ終了
   if(typeof event === "undefined"){
+    Logger.log("Not Found Event");
     return 0
   }
   
   // すでに予定が開始していないかを確認
   start_time = new Date(event.start.dateTime)
   if(start_time.getTime() < new Date().getTime()){
+    Logger.log("Event Started");
+    Logger.log(event);
     return 0
   }
   
@@ -47,7 +50,7 @@ function create_message(event){
 }
 
 function post_slack(message){
-  var postUrl = '**********'; //Incoming Webhook URL
+  var postUrl = ''; //Incoming Webhook URL
   var params = {
     method: 'post',
     contentType: 'application/json',
